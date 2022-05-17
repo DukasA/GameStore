@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #121212;
+    //color: #bb86fc;
+    color: white;
+}
+
+.main {
+    position: relative;
+    color: white;
+    padding: 0px 30px 100px 300px;
+    z-index: 1;
+
+    @media (max-width: 1100px) {
+        padding: 0px 30px 100px 30px;
+    }
+}
+

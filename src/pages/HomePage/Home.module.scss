@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+
+
+
+.home {
+    font-family: 'Goldman', cursive;
+    overflow: auto;
+
+    .spinner {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+    }
+
+    &__title {
+        font-size: 60px;
+        font-weight: 700;
+        color: inherit;
+    }
+
+    &__subtitle {
+        font-size: 24px;
+        font-weight: 400;
+        color: inherit;
+    }
+
+    &__filter {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+
+        div {
+            margin-right: 5px;
+        }
+
+        select {
+            border: none;
+            background-color: hsla(0,0%,100%,.07);
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 20px;
+            outline: none;
+            cursor: pointer;
+            
+            &:last-child {
+                padding-right: 70px;
+                margin-left: 15px;
+                background: white;
+                color: black;
+            }
+
+            option {
+                color: black;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    &__itemsWrapper {
+        padding-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 450px));
+        grid-gap: 20px;
+        grid-auto-rows: minmax(450px, auto);
+
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+
+            
+
+            li {
+                position: relative;
+                padding: 15px 25px;
+                border: 1px solid grey;
+                background-color: hsla(0,0%,100%,.07);
+                cursor: pointer;
+                margin: 0 10px;
+                transition: 0.3s all;
+
+                button {
+                    padding: 15px 25px;
+                    border: none;
+                    background: transparent;
+                    color: white;
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    background: darken($color: hsla(0,0%,100%,.07), $amount: 70);
+                }
+
+
+                &:nth-child(1) {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: red;
+    font-size: 60px;
+}

@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+
+.spinner {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+}
+
+.gamePage {
+    font-family: 'Goldman', cursive;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-areas: 
+    "header header header info info"
+    "slider slider slider info info"
+    "... ... ... info info";
+    grid-gap: 20px;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        "header"
+        "slider"
+        "info";
+    }
+
+    &__backgroundImg {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+    }
+
+    &__header {
+        grid-area: header;
+        z-index: 1;
+
+        h1 {
+            font-size: 45px;
+        }
+
+        h3 {
+            font-size: 21px;
+            letter-spacing: 1px;
+            font-weight: 100;
+            text-decoration: underline;
+        }
+    }
+
+    &__slider {
+        grid-area: slider;
+        //grid-auto-rows: 500px;
+        height: 500px;
+        z-index: 1;
+
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__info {
+        grid-area: info;
+        grid-auto-rows: minmax(0,auto);
+        z-index: 1;
+
+        .about {
+
+            &__title {
+                font-size: 27px;
+                opacity: 0.6;
+            }
+
+            &__descr {
+                display: block;
+                overflow: visible;
+            }
+            &__descr_nope {
+                display: block;
+                height: 80px;
+                overflow: hidden;
+            }
+
+            button {
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                padding: 3px 4px;
+                background: white;
+                font-size: 12px;
+                color: black;
+                border-radius: 4px;
+                border: none;
+                cursor: pointer;
+                transition: 0.3s all;
+
+                :hover {
+                    background: #000;
+                    color: white;
+                }
+            }
+        }
+
+        .details {
+            width: 100%;
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-areas: 
+            "platforms genre"
+            "date devs"
+            "publisher rating"
+            "otherGames otherGames"
+            "tags tags"
+            "website website";
+            grid-gap: 30px;
+
+            div {
+
+                .title {
+                    opacity: 0.6;
+                    text-decoration: none;
+                }
+
+                span {
+                    text-decoration: underline;
+                }
+            }
+
+            &__platforms {
+                grid-area: platforms;
+            }
+
+            &__genre {
+                grid-area: genre;
+            }
+
+            &__date {
+                grid-area: date;
+            }
+
+            &__devs {
+                grid-area: devs;
+            }
+
+            &__publisher {
+                grid-area: publisher;
+            }
+
+            &__rating {
+                grid-area: rating;
+            }
+
+            &__otherGames {
+                grid-area: otherGames;
+            }
+
+            &__tags {
+                grid-area: tags;
+            }
+
+            &__website {
+                grid-area: website;
+            }
+        }
+
+        
+    }
+
+    
+
+}
