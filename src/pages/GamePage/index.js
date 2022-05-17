@@ -43,13 +43,17 @@ function GamePage() {
                     { /*======= SLIDER =======*/ }
                     <div className={styles.gamePage__slider}><img src={info.background_image}></img></div>
 
-                    { /*======= BACKGROUND IMAGE =======*/ }
+                    { /*======= INFO SECTION =======*/ }
                     <div className={styles.gamePage__info}>
+
+                        { /*======= ABOUT SECTION =======*/ }
                         <div className={styles.about}>
                             <span className={styles.about__title}>About:</span><br/>
                             <span className={showAbout ? styles.about__descr : styles.about__descr_nope}>{info.description_raw}</span>
                             <button onClick={() => setShowAbout(!showAbout)}>{showAbout ? 'Read Less' : 'Read More'}</button>
                         </div>
+
+                        { /*======= DETAILS SECTION =======*/ }
                         <div className={styles.details}>
                             <div className={styles.details__platforms}>
                                 <span className={styles.title}>Platforms:</span> 
