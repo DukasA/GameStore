@@ -6,7 +6,6 @@ import { GAMEPAGE_ROUTE } from '../../utils/consts';
 
 function GameItem({props}) {
 
-    //const dispatch = useDispatch();
     const history = useNavigate()
 
     return (

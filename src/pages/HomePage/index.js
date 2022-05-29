@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { fetchGamesList } from '../../http/fetchGamesList';
 import GameItem from '../../components/GameItem/index';
 import styles from './Home.module.scss';
-//import { Context } from '../../index';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from "react-spinners/ClipLoader";
 
 function Home() {
-
-    //const {data} = useContext(Context);
 
     const dispatch = useDispatch();
     const data = useSelector(state => state.data);
@@ -31,23 +28,24 @@ function Home() {
         window.scrollTo(0, ref);
     }
 
-    console.log(data);
-
     return (
         <div className={styles.home}>
             <h1 ref={ref} className={styles.home__title}>New and Trending</h1>
             <h3 className={styles.home__subtitle}>Based on rating and release date</h3>
             <div className={styles.home__filter}>
-                <div>Order by:</div> 
+
+                {/* THIS SECTION WILL WORK LATER */}
+                {/* <div>Order by:</div> 
                 <select>
-                    <option>Rating</option>
-                    <option>Release date</option>
+                    {filterData.map(item => (
+                        <option key={item.id}>{item.name}</option>
+                    ))}
                 </select>
                 <select>
                     <option>Xbox</option>
                     <option>PS4</option>
                     <option>PC</option>
-                </select>
+                </select> */}
             </div>
             {data.length > 0 ?
                 <div>

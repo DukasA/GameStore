@@ -1,24 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import {Link} from 'react-router-dom'
 import { fetchCurrentgGame } from '../../http/fetchCurrentGame';
 import styles from './GamePage.module.scss';
 import ClipLoader from "react-spinners/ClipLoader";
-
+import {fetchGameScreenshots} from '../../http/fetchGameScreenshots';
 
 function GamePage() {
 
     const params = useParams();
+    const history = useNavigate();
 
     const [info, setInfo] = useState([]);
+    const [media, setMedia] = useState([]);
+    const [slideIndex, setSlideIndex] = useState(0);
     const [showAbout, setShowAbout] = useState(false);
 
+    
     useEffect(() => {
-        fetchCurrentgGame(params.id).then(res => setInfo(res));
+        setTimeout(() => {
+            fetchCurrentgGame(params.id).then(res => setInfo(res));
+        },1000) 
     }, []); 
+    
+    useEffect(() => {
+        fetchGameScreenshots(params.id).then(res => setMedia(res.results));
+    }, []);
+
+
+
+    const prevSlide = () => {
+        if (slideIndex !== 0) {
+            setSlideIndex(slideIndex - 1);
+        } else if (slideIndex === 0) {
+            setSlideIndex(media.length - 1);
+        }
+    }
+
+    const nextSlide = () => {
+        if (slideIndex === media.length - 1) {
+            setSlideIndex(0);
+        } else if (slideIndex !== media.length - 1) {
+            setSlideIndex(slideIndex + 1)
+        }
+    }
 
     
-
-    console.log(info);
+    console.log(info)
 
     return (
         <div>
@@ -36,12 +64,20 @@ function GamePage() {
 
                     { /*======= HEADER =======*/ }
                     <div className={styles.gamePage__header}>
+                    <Link to={'/'}>{'<-'}Go Home</Link>
                         <h3>Play time: {info.playtime} hours</h3>
                         <h1>{info.name}</h1>
                     </div>
 
                     { /*======= SLIDER =======*/ }
-                    <div className={styles.gamePage__slider}><img src={info.background_image}></img></div>
+                    <div className={styles.gamePage__slider}>
+                        <img src={media[slideIndex].image}></img>
+                        
+                        <div className={styles.sliderBtns}>
+                            <button onClick={prevSlide}>{'<'}</button>
+                            <button onClick={nextSlide}>{'>'}</button>
+                        </div>
+                    </div>
 
                     { /*======= INFO SECTION =======*/ }
                     <div className={styles.gamePage__info}>
@@ -96,8 +132,8 @@ function GamePage() {
                             <div className={styles.details__otherGames}>
                                 <span className={styles.title}>Other games in the series:</span> 
                                 <br/>
-                                {info.alternative_names.map(item => (
-                                    <span>{item}, </span>
+                                {info.alternative_names.map((item,index) => (
+                                    <span key={index}>{item}, </span>
                                 ))}
                             </div>
                             <div className={styles.details__tags}>
