@@ -5,6 +5,11 @@
     overflow: hidden;
     background-color: hsla(0,0%,100%,.07);
 
+    @media (max-width: 450px) {
+        width: 90%;
+        height: 250px;
+    }
+
 
     &:hover {
         .item__popUp {
@@ -27,11 +32,15 @@
     &__footer {
         position: relative;
         width: 100%;
-        height: 35%;
+        height: 40%;
         padding: 10px;
 
         h3 {
             font-size: 30px;
+
+            @media (max-width: 450px) {
+                font-size: 18px;
+            }
         }
 
         .info {
@@ -43,6 +52,10 @@
             justify-content: space-between;
             align-items: center;
 
+            @media (max-width: 450px) {
+                bottom: 10px;
+            }
+
             .rating__low {
                 position: relative;
                 width: 60px;
@@ -51,11 +64,21 @@
                 border: 2px solid red;
                 color: red;
 
+                @media (max-width: 450px) {
+                    width: 40px;
+                    height: 40px;
+                }   transform: translateX(-50%);
+                
+
                 span {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+
+                    @media (max-width: 450px) {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -67,11 +90,20 @@
                 height: 60px;
                 border-radius: 50%;
 
+                @media (max-width: 450px) {
+                    width: 40px;
+                    height: 40px;
+                }
+
                 span {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+
+                    @media (max-width: 450px) {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -83,11 +115,20 @@
                 height: 60px;
                 border-radius: 50%;
 
+                @media (max-width: 450px) {
+                    width: 40px;
+                    height: 40px;
+                }
+
                 span {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+
+                    @media (max-width: 450px) {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -95,6 +136,11 @@
                 position: absolute;
                 right: 20px;
                 color: gray;
+                font-size: 18px;
+
+                @media (max-width: 450px) {
+                    font-size: 14px;
+                }
 
                 span {
                     color: white;

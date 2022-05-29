@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './GameItem.module.scss';
-import {useDispatch} from 'react-redux';
 import { GAMEPAGE_ROUTE } from '../../utils/consts';
 
 function GameItem({props}) {

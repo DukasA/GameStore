@@ -15,6 +15,7 @@
     "slider slider slider info info"
     "... ... ... info info";
     grid-gap: 20px;
+    overflow: hidden;
 
     @media (max-width: 1000px) {
         grid-template-columns: repeat(1,1fr);
@@ -24,23 +25,42 @@
         "info";
     }
 
+    @media (max-width: 450px) {
+        grid-template-columns: repeat(1,1fr);
+    }
+
     &__backgroundImg {
         position: fixed;
         width: 100%;
         top: 0;
         left: 0;
         opacity: 0.1;
+
+        @media (max-width: 450px) {
+            height: 50%;
+        }
     }
 
     &__header {
         grid-area: header;
         z-index: 1;
 
+        @media (max-width: 450px) {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
         a {
             text-decoration: none;
             color: white;
             font-size: 20px;
             opacity: 0.7;
+
+            @media (max-width: 450px) {
+                text-align: center;
+                display: block;
+                margin-bottom: 10px;
+            }
 
             &:hover {
                 text-decoration: underline;
@@ -49,6 +69,11 @@
 
         h1 {
             font-size: 45px;
+
+            @media (max-width: 450px) {
+                font-size: 30px;
+                text-align: center;
+            }
         }
 
         h3 {
@@ -56,6 +81,10 @@
             letter-spacing: 1px;
             font-weight: 100;
             text-decoration: underline;
+
+            @media (max-width: 450px) {
+                text-align: center;
+            }
         }
     }
 
@@ -68,6 +97,14 @@
 
         border-radius: 20px;
         overflow: hidden;
+
+        @media (max-width: 600px) {
+            height: 300px;
+        }
+
+        @media (max-width: 400px) {
+            height: 200px;
+        }
 
         img {
             position: absolute;
@@ -91,6 +128,10 @@
                 font-weight: 900;
                 transition: 0.3s all;
                 cursor: pointer;
+
+                @media (max-width: 450px) {
+                    padding: 5px 8px;
+                }
 
                 &:hover {
                     background: #000;
@@ -155,6 +196,11 @@
             "tags tags"
             "website website";
             grid-gap: 30px;
+
+            @media (max-width: 450px) {
+                grid-template-columns: repeat(2,1fr);
+                grid-gap: 10px;
+            }
 
             div {
 
